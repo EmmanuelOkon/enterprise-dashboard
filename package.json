@@ -11,6 +11,7 @@
   "dependencies": {
     "@next/eslint-plugin-next": "^14.2.3",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@syncfusion/ej2": "^25.1.41",
     "@syncfusion/ej2-react-calendars": "^25.1.40",
     "@syncfusion/ej2-react-charts": "^25.1.41",
