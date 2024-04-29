@@ -9,18 +9,42 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^14.2.3",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tooltip": "^1.0.7",
+    "@syncfusion/ej2": "^25.1.41",
+    "@syncfusion/ej2-react-calendars": "^25.1.40",
+    "@syncfusion/ej2-react-charts": "^25.1.41",
+    "@syncfusion/ej2-react-dropdowns": "^25.1.41",
+    "@syncfusion/ej2-react-grids": "^25.1.41",
+    "@syncfusion/ej2-react-inputs": "^25.1.40",
+    "@syncfusion/ej2-react-kanban": "^25.1.35",
+    "@syncfusion/ej2-react-popups": "^25.1.41",
+    "@syncfusion/ej2-react-richtexteditor": "^25.1.41",
+    "@syncfusion/ej2-react-schedule": "^25.1.41",
+    "@tanstack/react-query": "^5.32.0",
+    "@tanstack/react-query-devtools": "^5.32.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.29.1",
+    "lucide-react": "^0.376.0",
+    "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.3"
+    "react-icons": "^5.1.0",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tanstack/eslint-plugin-query": "^5.28.11",
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^18.3.1",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3"
+    "typescript": "^5"
   }
 }
