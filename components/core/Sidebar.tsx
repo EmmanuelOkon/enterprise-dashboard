@@ -1,13 +1,10 @@
 import React from "react";
-// import { Link, NavLink } from "react-router-dom";
+import Link from "next/link";
 
 import { SiShopware } from "react-icons/si";
 import { MdOutlineCancel } from "react-icons/md";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import Link from "next/link";
 
-// import { links } from "../data/dummy";
-import { routes } from "@/utils/routes";
+import { Route, RouteLink, routes } from "@/utils/routes";
 import { Button } from "../ui/button";
 import {
   Tooltip,
@@ -15,6 +12,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "../ui/tooltip";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 // import { useStateContext } from "../contexts/ContextProvider";
 
@@ -29,10 +28,8 @@ const Sidebar = () => {
   //   }
   // };
 
-  const activeLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-md text-white text-md m-2";
-  const normalLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-md text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
+  const pathname = usePathname();
+
 
   return (
     <>
@@ -49,7 +46,7 @@ const Sidebar = () => {
           </div>
           <TooltipProvider>
             <Tooltip>
-              <TooltipTrigger asChild >
+              <TooltipTrigger asChild>
                 <Button
                   type="button"
                   // onClick={() => setActiveMenu(!activeMenu)}
@@ -69,30 +66,38 @@ const Sidebar = () => {
       <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
         {activeMenu && (
           <>
-            <div className="mt-  ">
-              {routes.map((item) => (
-                <div key={item.title}>
-                  <p className="text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase">
-                    {item.title}
-                  </p>
-                  {/* {item.links.map((link) => (
-                    <Link
-                      href={`/${link.name}`}
-                      key={link.name}
-                      onClick={handleCloseSideBar}
-                      style={({ isActive }) => ({
-                        backgroundColor: isActive ? "blue" : "",
-                      })}
-                      className={({ isActive }) =>
-                        isActive ? activeLink : normalLink
+            <div className="pb-10">
+              {routes.map((route: Route) => {
+                return (
+                  <div key={route.title}>
+                    <h3 className="text-gray-400 dark:text-gray-400 m-3 my-4 uppercase">
+                      {route.title}
+                    </h3>
+                    {route.links?.map((link: RouteLink) => {
+                      if (!link) {
+                        return null;
                       }
-                    >
-                      {link.icon}
-                      <span className="capitalize">{link.name}</span>
-                    </Link>
-                  ))} */}
-                </div>
-              ))}
+                      const activePage = pathname === link.href;
+
+                      return (
+                        <Link
+                          key={link.name}
+                          href={link.href}
+                          // onClick={handleCloseSideBar}
+                          className={`flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-md text-md text-gray-700 m-2 ${
+                            activePage
+                              ? "bg-red-800 text-white"
+                              : "dark:text-gray-200 dark:hover:text-black hover:bg-light-gray"
+                          } `}
+                        >
+                          {link.icon}
+                          <span className="capitalize">{link.name}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                );
+              })}
             </div>
           </>
         )}
