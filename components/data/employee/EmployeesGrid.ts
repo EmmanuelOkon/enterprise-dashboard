@@ -1,5 +1,5 @@
-import { GridEmployeeCountry } from "./GridEmployeeCountry";
-import { GridEmployeeProfile } from "./GridEmployeeProfile";
+import { GridEmployeeCountry } from "../../employee/GridEmployeeCountry";
+import { GridEmployeeProfile } from "../../employee/GridEmployeeProfile";
 
 export const employeesGrid = [
   {

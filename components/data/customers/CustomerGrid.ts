@@ -1,5 +1,5 @@
-import { CustomerGridImage } from "./CustomerGridImage";
-import { CustomerGridStatus } from "./CustomerGridStatus";
+import { CustomerGridImage } from "../../customers/CustomerGridImage";
+import { CustomerGridStatus } from "../../customers/CustomerGridStatus";
 
 export const customersGrid = [
   { type: "checkbox", width: "50" },

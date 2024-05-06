@@ -31,7 +31,7 @@ export const routes: Route[] = [
       {
         name: "e-commerce",
         icon: <FiShoppingBag />,
-        href: URLS.HOME,
+        href: URLS.ECOMMERCE,
       },
     ],
   },

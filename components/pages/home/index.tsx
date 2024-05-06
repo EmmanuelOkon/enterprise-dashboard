@@ -14,6 +14,7 @@ import Sidebar from "@/components/core/Sidebar";
 import Link from "next/link";
 
 import { Route, RouteLink, routes } from "@/utils/routes";
+import { Navbar } from "@/components/core";
 
 type Props = {};
 
@@ -84,7 +85,7 @@ const Home = (props: Props) => {
           } `}
         >
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
-            Navbar
+            <Navbar />
           </div>
         </div>
         <div>
