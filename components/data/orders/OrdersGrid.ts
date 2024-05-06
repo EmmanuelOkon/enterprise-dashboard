@@ -1,5 +1,5 @@
-import { GridOrderImage } from "./GridOrderImage";
-import { GridOrderStatus } from "./GridOrderStatus";
+import { GridOrderImage } from "../../orders/GridOrderImage";
+import { GridOrderStatus } from "../../orders/GridOrderStatus";
 
 interface ordersGridProps {
   headerText: string;

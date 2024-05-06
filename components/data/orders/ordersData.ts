@@ -1,4 +1,4 @@
-import { ordersDataProps } from "../../interface/orders/ordersDataProps";
+import { ordersDataProps } from "../../../interface/orders/ordersDataProps";
 
 import product1 from "./product1.jpg";
 import product2 from "./product2.jpg";

@@ -6,9 +6,7 @@ type Props = {
 };
 
 const HomePage = (props: Props) => {
-  return <div>
-    <Home />
-  </div>;
+  return <div>Shoppy home route page</div>;
 };
 
 export default HomePage;
