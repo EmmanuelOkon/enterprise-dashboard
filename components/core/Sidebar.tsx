@@ -14,13 +14,16 @@ import {
 } from "../ui/tooltip";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { URLS } from "@/utils/urls";
+import useAppState from "@/store";
 
 // import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
   // const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize } = useAppState();
 
-  const activeMenu = true;
+  // const activeMenu = true;
 
   // const handleCloseSideBar = () => {
   //   if (activeMenu && screenSize <= 900) {
@@ -30,16 +33,15 @@ const Sidebar = () => {
 
   const pathname = usePathname();
 
-
   return (
     <>
       <div className="bg-white shadow-sm">
-        <div className="flex justify-between items-center">
-          <div className="w-full sticky ">
+        <div className="flex justify-between items-center py-2">
+          <div className="wfull ticky ">
             <Link
-              href="/"
-              // onClick={handleCloseSideBar}
-              className="items-center gap-3 py-2 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
+              href={URLS.HOME}
+              onClick={() => setActiveMenu(false)}
+              className="items-center gap-3 py-2 ml-3 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
             >
               <SiShopware /> <span>Shoppy</span>
             </Link>
@@ -49,21 +51,22 @@ const Sidebar = () => {
               <TooltipTrigger asChild>
                 <Button
                   type="button"
+                  onClick={() => setActiveMenu(false)}
                   // onClick={() => setActiveMenu(!activeMenu)}
                   style={{ color: "blue" }}
-                  className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
+                  className="text-xl rounded-full h-10 w-10 p-2.5 hover:bg-light-gray mt4 block md:hidden"
                 >
                   <MdOutlineCancel />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>
-                <p>Menu</p>
+              <TooltipContent className="bg-slate-100">
+                <p>Close menu</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
       </div>
-      <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
+      <div className="ml3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
         {activeMenu && (
           <>
             <div className="pb-10">

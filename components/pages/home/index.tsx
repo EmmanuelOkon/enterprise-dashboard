@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
+
 import {
   Tooltip,
   TooltipContent,
@@ -18,32 +18,10 @@ import { Navbar } from "@/components/core";
 
 type Props = {};
 
-// const POSTS = [
-//   { id: 1, title: "post 1" },
-//   { id: 2, title: "post 2" },
-// ];
 
-// const fetchPosts = () => {
-//   return new Promise((resolve) => {
-//     setTimeout(() => {
-//       resolve(POSTS);
-//     }, 1000);
-//   });
-// };
 
 const Home = (props: Props) => {
-  //   const { isPending, isError, data, error } = useQuery({
-  //     queryKey: ["posts"],
-  //     queryFn: fetchPosts,
-  //   });
 
-  //   if (isPending) {
-  //     return <span>Loading...</span>;
-  //   }
-
-  //   if (isError) {
-  //     return <span>Error: {error.message}</span>;
-  //   }
 
   const currentColor = "#00FFFF";
 

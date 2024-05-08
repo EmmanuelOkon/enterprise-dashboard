@@ -1,7 +1,7 @@
 "use client";
 
-import React, { Children } from "react";
-import { useQuery } from "@tanstack/react-query";
+import React from "react";
+
 import {
   Tooltip,
   TooltipContent,
@@ -11,32 +11,18 @@ import {
 import { FiSettings } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import Sidebar from "@/components/core/Sidebar";
-import Link from "next/link";
 
-import { Route, RouteLink, routes } from "@/utils/routes";
 import { Navbar } from "@/components/core";
 
-type Props = {
+import useAppState from "@/store";
+
+type HomeLayoutProps = {
   children: React.ReactNode;
 };
 
-const HomeLayout = ({ children }: Props) => {
-  //   const { isPending, isError, data, error } = useQuery({
-  //     queryKey: ["posts"],
-  //     queryFn: fetchPosts,
-  //   });
-
-  //   if (isPending) {
-  //     return <span>Loading...</span>;
-  //   }
-
-  //   if (isError) {
-  //     return <span>Error: {error.message}</span>;
-  //   }
-
+const HomeLayout = ({ children }: HomeLayoutProps) => {
+  const { activeMenu } = useAppState();
   const currentColor = "#00FFFF";
-
-  const activeMenu = true;
 
   return (
     <div>
@@ -48,12 +34,12 @@ const HomeLayout = ({ children }: Props) => {
                 <Button
                   //   onClick={() => setThemeSettings(true)}
                   style={{ background: currentColor }}
-                  className="text-3xl text-white p-3 rounded-full h-12 w-12 hover:drop-shadow-xl hover:bg-light-gray"
+                  className="text-2xl text-white p-2.5 rounded-full h-10 w-10 hover:drop-shadow-xl hover:bg-light-gray"
                 >
                   <FiSettings />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>
+              <TooltipContent className="bg-slate-100">
                 <p>Settings</p>
               </TooltipContent>
             </Tooltip>

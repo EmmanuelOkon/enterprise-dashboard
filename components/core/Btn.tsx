@@ -2,12 +2,15 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 
 export interface ButtonProps {
-  bgColor: string;
+  bgColor?: string;
   color: string;
-  text: string;
-  size: string;
+  text?: string;
+  size?: string;
   borderRadius: string;
-  onClick: () => void;
+  onClick?: () => void;
+  icon?: React.ReactNode;
+  bgHoverColor?: string;
+  width?: string;
 }
 
 const Btn = ({
@@ -17,6 +20,9 @@ const Btn = ({
   size,
   borderRadius,
   onClick,
+  icon,
+  bgHoverColor,
+  width,
 }: ButtonProps) => {
   return (
     <Button
