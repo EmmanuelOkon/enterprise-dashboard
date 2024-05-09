@@ -12,35 +12,32 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "../ui/tooltip";
-import { cn } from "@/lib/utils";
+
 import { usePathname } from "next/navigation";
 import { URLS } from "@/utils/urls";
 import useAppState from "@/store";
 
-// import { useStateContext } from "../contexts/ContextProvider";
-
 const Sidebar = () => {
-  // const { activeMenu, setActiveMenu, screenSize } = useStateContext();
   const { activeMenu, setActiveMenu, screenSize } = useAppState();
 
-  // const activeMenu = true;
-
-  // const handleCloseSideBar = () => {
-  //   if (activeMenu && screenSize <= 900) {
-  //     setActiveMenu(false);
-  //   }
-  // };
+  const handleCloseSideBar = () => {
+    if (screenSize !== undefined) {
+      if (activeMenu && screenSize <= 900) {
+        setActiveMenu(false);
+      }
+    }
+  };
 
   const pathname = usePathname();
 
   return (
     <>
-      <div className="bg-white shadow-sm">
+      <div className="bg-white md:shadow-sm">
         <div className="flex justify-between items-center py-2">
-          <div className="wfull ticky ">
+          <div className="w-full sticky ">
             <Link
               href={URLS.HOME}
-              onClick={() => setActiveMenu(false)}
+              onClick={handleCloseSideBar}
               className="items-center gap-3 py-2 ml-3 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
             >
               <SiShopware /> <span>Shoppy</span>
@@ -51,8 +48,8 @@ const Sidebar = () => {
               <TooltipTrigger asChild>
                 <Button
                   type="button"
-                  onClick={() => setActiveMenu(false)}
-                  // onClick={() => setActiveMenu(!activeMenu)}
+                  // onClick={() => setActiveMenu(false)}
+                  onClick={() => setActiveMenu(!activeMenu)}
                   style={{ color: "blue" }}
                   className="text-xl rounded-full h-10 w-10 p-2.5 hover:bg-light-gray mt4 block md:hidden"
                 >
@@ -66,7 +63,7 @@ const Sidebar = () => {
           </TooltipProvider>
         </div>
       </div>
-      <div className="ml3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
+      <div className="h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
         {activeMenu && (
           <>
             <div className="pb-10">
@@ -86,7 +83,7 @@ const Sidebar = () => {
                         <Link
                           key={link.name}
                           href={link.href}
-                          // onClick={handleCloseSideBar}
+                          onClick={handleCloseSideBar}
                           className={`flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-md text-md text-gray-700 m-2 ${
                             activePage
                               ? "bg-red-800 text-white"

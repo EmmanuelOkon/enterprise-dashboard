@@ -16,6 +16,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "../ui/tooltip";
+import Link from "next/link";
+import { SiShopware } from "react-icons/si";
+import { URLS } from "@/utils/urls";
 
 interface NavButtonProps {
   title: string;
@@ -35,7 +38,7 @@ const NavButton = ({
   <>
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger>
+        <TooltipTrigger asChild>
           <button
             type="button"
             onClick={() => customFunc()}
@@ -67,30 +70,42 @@ const Navbar = () => {
     setScreenSize,
   } = useAppState();
 
-  // useEffect(() => {
-  //   const handleResize = () => setScreenSize(window.innerWidth);
-  //   window.addEventListener("resize", handleResize);
-  //   handleResize();
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  // useEffect(() => {
-  //   if (screenSize <= 900) {
-  //     setActiveMenu(false);
-  //   } else {
-  //     setActiveMenu(true);
-  //   }
-  // }, [screenSize]);
+  useEffect(() => {
+    if (screenSize !== undefined && screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenSize]);
 
   return (
-    <div className="flex justify-between p-2 md:ml6 md:mr6 relative shadow-sm">
-      <NavButton
-        title="Toggle menu"
-        customFunc={() => setActiveMenu(!activeMenu)}
-        icon={<AiOutlineMenu />}
-        color=""
-        dotColor=""
-      />
+    <div className="flex justify-between p-2 md:px-6 bg-white shadow-sm relative">
+      <div className="flex items-center gap-3">
+        {!activeMenu && (
+          <div className="w-full sticky">
+            <Link
+              href={URLS.HOME}
+              className="items-center py-2 flex text-2xl dark:text-white text-slate-900"
+            >
+              <SiShopware />
+            </Link>
+          </div>
+        )}
+        <NavButton
+          title="Toggle menu"
+          customFunc={() => setActiveMenu(!activeMenu)}
+          icon={<AiOutlineMenu />}
+          color=""
+          dotColor=""
+        />
+      </div>
 
       <div className="flex">
         <NavButton
@@ -112,7 +127,9 @@ const Navbar = () => {
         <NavButton
           title="Notification"
           dotColor="rgb(254, 201, 15)"
-          customFunc={() => setIsClicked({notification: !isClicked.notification})}
+          customFunc={() =>
+            setIsClicked({ notification: !isClicked.notification })
+          }
           // color={currentColor}
           icon={<RiNotification3Line />}
           color=""
@@ -123,7 +140,9 @@ const Navbar = () => {
             <TooltipTrigger asChild>
               <div
                 className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-                onClick={() => setIsClicked({ userProfile: !isClicked.userProfile })}
+                onClick={() =>
+                  setIsClicked({ userProfile: !isClicked.userProfile })
+                }
               >
                 <Image
                   className="rounded-full w-8 h-8"
