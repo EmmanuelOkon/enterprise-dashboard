@@ -29,8 +29,8 @@ export const earningData: earningData[] = [
     amount: "4,396",
     percentage: "+23%",
     title: "Products",
-    iconColor: "rgb(255, 244, 229)",
-    iconBg: "rgb(254, 201, 15)",
+    iconColor: "#FFF4E5",
+    iconBg: "#FEC90F",
     pcColor: "green-600",
   },
   {
@@ -38,8 +38,8 @@ export const earningData: earningData[] = [
     amount: "423,39",
     percentage: "+38%",
     title: "Sales",
-    iconColor: "rgb(228, 106, 118)",
-    iconBg: "rgb(255, 244, 229)",
+    iconColor: "#E46A76",
+    iconBg: "#FFF4E5",
     pcColor: "green-600",
   },
   {
@@ -47,8 +47,8 @@ export const earningData: earningData[] = [
     amount: "39,354",
     percentage: "-12%",
     title: "Refunds",
-    iconColor: "rgb(0, 194, 146)",
-    iconBg: "rgb(235, 250, 242)",
+    iconColor: "#00C292",
+    iconBg: "#EBFAF2",
     pcColor: "red-600",
   },
 ];

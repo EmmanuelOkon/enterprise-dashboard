@@ -1,8 +1,9 @@
 import React from 'react'
+import Page from '@/components/pages/employees'
 
 const Employees = () => {
   return (
-    <div>Employees</div>
+    <Page />
   )
 }
 

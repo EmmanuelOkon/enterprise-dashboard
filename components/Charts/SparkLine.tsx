@@ -1,16 +1,18 @@
 import React from "react";
-import {
-  SparklineComponent,
-  Inject,
-  SparklineTooltip,
-} from "@syncfusion/ej2-react-charts";
+
+import { Sparklines } from "react-sparklines";
+
+interface SparklineAreaDataItem {
+  x: number;
+  yval: number;
+}
 
 interface SparkLineProps {
-  id: number;
+  id: string;
   height: string;
   width: string;
   color?: string;
-  data?: string;
+  data?: SparklineAreaDataItem[];
   type?: string;
   currentColor?: string;
   fill?: string;
@@ -20,7 +22,7 @@ interface SparkLineProps {
   children?: React.ReactNode;
 }
 
-const SparkLine = ({
+const SparkLineComponent = ({
   id,
   height,
   width,
@@ -33,18 +35,20 @@ const SparkLine = ({
   lineWidth,
   children,
 }: SparkLineProps) => {
+  const numericHeight = parseInt(height);
+  const numericWidth = parseInt(width);
+
   return (
-    <SparkLine
-      id={id}
-      height={height}
-      width={width}
-      lineWidth={1}
-      valueType="Numeric"
-      fill={color}
+    <Sparklines
+      data={[5, 10, 5, 20, 8, 15]}
+      limit={5}
+      width={100}
+      height={20}
+      margin={5}
     >
       SparkLine
-    </SparkLine>
+    </Sparklines>
   );
 };
 
-export default SparkLine;
+export default SparkLineComponent;

@@ -6,7 +6,7 @@ type Props = {};
 const Page = (props: Props) => {
   return (
     <AppContainer className="flex w-full items-start bg-lime-700 ">
-      <h1>Shoppy Home Page</h1>
+      <h1>Orders Page</h1>
     </AppContainer>
   );
 };
