@@ -4,11 +4,10 @@ import { FiShoppingCart } from "react-icons/fi";
 import { BsChatLeft } from "react-icons/bs";
 import { RiNotification3Line } from "react-icons/ri";
 import { MdKeyboardArrowDown, MdOutlineCancel } from "react-icons/md";
-// import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import useAppState from "@/store";
 
-// import avatar from "";
-import { Btn, Cart, Chat, Notification, UserProfile } from "./";
+import avatar from "../../public/images/avatar.jpg";
+import { Cart, Chat, Notification, UserProfile } from "./";
 import Image from "next/image";
 import {
   Tooltip,
@@ -89,7 +88,7 @@ const Navbar = () => {
     <div className="flex justify-between p-2 md:px-6 bg-white shadow-sm relative">
       <div className="flex items-center gap-3">
         {!activeMenu && (
-          <div className="w-full sticky">
+          <div className="w-full sticky  ">
             <Link
               href={URLS.HOME}
               className="items-center py-2 flex text-2xl dark:text-white text-slate-900"
@@ -146,7 +145,7 @@ const Navbar = () => {
               >
                 <Image
                   className="rounded-full w-8 h-8"
-                  src="/images/avatar.jpg"
+                  src={avatar}
                   alt="user-profile"
                   width={40}
                   height={40}

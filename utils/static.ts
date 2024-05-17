@@ -1,13 +1,13 @@
 
 
-import avatar from "./avatar.jpg";
-import avatar2 from "./avatar2.jpg";
-import avatar3 from "./avatar3.png";
-import avatar4 from "./avatar4.jpg";
-import product4 from "./product4.jpg";
-import product5 from "./product5.jpg";
-import product6 from "./product6.jpg";
-import product7 from "./product7.jpg";
+import avatar from "../public/images/avatar.jpg";
+import avatar2 from "../public/images/avatar2.jpg";
+import avatar3 from "../public/images/avatar3.png";
+import avatar4 from "../public/images/avatar4.jpg";
+import product4 from "../public/images/product4.jpg";
+import product5 from "../public/images/product5.jpg";
+import product6 from "../public/images/product6.jpg";
+import product7 from "../public/images/product7.jpg";
 // import product8 from "./product8.jpg";
 
 
@@ -1083,6 +1083,7 @@ export const dropdownData = [
     Time: "May 2021",
   },
 ];
+
 export const SparklineAreaData = [
   { x: 1, yval: 2 },
   { x: 2, yval: 6 },

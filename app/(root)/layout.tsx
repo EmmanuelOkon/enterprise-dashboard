@@ -46,7 +46,7 @@ const HomeLayout = ({ children }: HomeLayoutProps) => {
           </TooltipProvider>
         </div>
         {activeMenu ? (
-          <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
+          <div className="w64 md: w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white px2">
             <Sidebar />
           </div>
         ) : (
@@ -55,8 +55,8 @@ const HomeLayout = ({ children }: HomeLayoutProps) => {
           </div>
         )}
         <div
-          className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
-            activeMenu ? "md:ml-72" : "flex-2"
+          className={`dark:bg-main-bg bg-mainbg bg-slate-100 min-h-screen w-full ${
+            activeMenu ? "md:ml-72 md:ml64 " : "flex-2"
           } `}
         >
           <div className="fixe md: static bg-main-bg dark:bg-main-dark-bg navbar w-full">

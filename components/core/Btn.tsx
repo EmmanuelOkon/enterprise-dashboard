@@ -11,6 +11,7 @@ export interface ButtonProps {
   icon?: React.ReactNode;
   bgHoverColor?: string;
   width?: string;
+  children?: React.ReactNode
 }
 
 const Btn = ({
@@ -23,6 +24,7 @@ const Btn = ({
   icon,
   bgHoverColor,
   width,
+  children
 }: ButtonProps) => {
   return (
     <Button

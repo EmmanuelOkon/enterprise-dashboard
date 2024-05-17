@@ -66,6 +66,10 @@
   }
 }
 
+/* .app-container {
+  @apply mx-auto max-w-[96%];
+} */
+
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -83,5 +87,10 @@
   .sidebar {
     z-index: 10000000;
   }
+}
+
+.ecommerceCards {
+  background-color: #41edf9;
+  cursor: pointer;
 }
 
