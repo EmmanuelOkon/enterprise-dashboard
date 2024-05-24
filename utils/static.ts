@@ -1160,6 +1160,8 @@ export const ecomPieChartData = [
   { x: "2021", y: 18, text: "25%" },
 ];
 
+
+
 export const stackedPrimaryXAxis = {
   majorGridLines: { width: 0 },
   minorGridLines: { width: 0 },
@@ -1175,7 +1177,7 @@ export const stackedPrimaryYAxis = {
   lineStyle: { width: 0 },
   minimum: 100,
   maximum: 400,
-  interval: 100,
+  interval: 1,
   majorTickLines: { width: 0 },
   majorGridLines: { width: 1 },
   minorGridLines: { width: 1 },
