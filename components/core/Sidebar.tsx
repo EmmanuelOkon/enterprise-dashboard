@@ -34,7 +34,7 @@ const Sidebar = () => {
     <>
       <div className="bg-white md:shadow-sm">
         <div className="flex justify-between items-center py-2">
-          <div className="w-full sticky ">
+          <div className="sticky">
             <Link
               href={URLS.HOME}
               onClick={handleCloseSideBar}
@@ -70,7 +70,7 @@ const Sidebar = () => {
               {routes.map((route: Route) => {
                 return (
                   <div key={route.title}>
-                    <h3 className="text-gray-400 dark:text-gray-400 m-3 my-4 uppercase">
+                    <h3 className="text-gray-400 dark:text-gray-400 m-3 my-4 uppercase font-bold ">
                       {route.title}
                     </h3>
                     {route.links?.map((link: RouteLink) => {

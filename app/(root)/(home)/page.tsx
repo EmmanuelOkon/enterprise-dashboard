@@ -1,12 +1,10 @@
-import Home from "@/components/pages/home";
+import Page from "@/components/pages/ecommerce";
 import React from "react";
 
-type Props = {
-  children: React.ReactNode;
-};
+type Props = {};
 
-const HomePage = (props: Props) => {
-  return <div>Shoppy home route page</div>;
+const HomePage = () => {
+  return <Page />;
 };
 
 export default HomePage;

@@ -94,3 +94,22 @@
   cursor: pointer;
 }
 
+.recharts-default-tooltip {
+  text-align: left;
+  background-color: rgb(241 245 249 / 1) !important;
+  border: none !important;
+  border-radius: 5px !important;
+}
+
+.recharts-default-tooltip ul {
+  text-transform: capitalize;
+}
+
+.recharts-tooltip-cursor {
+  fill: transparent !important;
+}
+
+.recharts-tooltip-wrapper {
+  background-color: transparent !important;
+}
+
