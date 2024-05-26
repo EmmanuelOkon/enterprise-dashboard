@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
@@ -25,6 +27,7 @@ interface NavButtonProps {
   icon: React.ReactNode;
   color: string;
   dotColor: string;
+  onClick?: () => void;
 }
 
 const NavButton = ({
@@ -33,6 +36,7 @@ const NavButton = ({
   icon,
   color,
   dotColor,
+  onClick,
 }: NavButtonProps) => (
   <>
     <TooltipProvider>
@@ -42,7 +46,9 @@ const NavButton = ({
             type="button"
             onClick={() => customFunc()}
             style={{ color }}
-            className="relative text-xl rounded-full p-3 hover:bg-light-gray"
+            className="relative text-xl rounded-full p-3 hover:bg-light-gray outline-0 "
+            data-state=""
+            // data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0
           >
             <span
               style={{ background: dotColor }}
@@ -84,8 +90,19 @@ const Navbar = () => {
     }
   }, [screenSize]);
 
+  const slideBar = "transform translate-x64 md:translate-x72 bg-red-500";
+
+  //  ${
+  //        activeMenu
+  //          ? "transform translate-x-64 md:translate-x-72 w-full translate-x0 bg-red-500"
+  //          : "direction-alternate-reverse translate-x-0 bg-yellow-500"
+  //      }
+
   return (
-    <div className="flex justify-between p-2 md:px-6 bg-white shadow-sm relative">
+    <div
+      className={`flex justify-between p-2 md:px-6 bg-white shadow-sm relative transition-transform duration-1000 ease-in-out 
+      `}
+    >
       <div className="flex items-center gap-3">
         {!activeMenu && (
           <div className="w-full sticky  ">
@@ -99,6 +116,13 @@ const Navbar = () => {
         )}
         <NavButton
           title="Toggle menu"
+          // customFunc={() => {
+          //   ` ${
+          //     activeMenu
+          //       ? "transform translate-x-64 md:translate-x-72 w-full translate-x0 bg-red-500"
+          //       : "direction-alternate-reverse translate-x-0 bg-yellow-500"
+          //   }`;
+          // }}
           customFunc={() => setActiveMenu(!activeMenu)}
           icon={<AiOutlineMenu />}
           color=""

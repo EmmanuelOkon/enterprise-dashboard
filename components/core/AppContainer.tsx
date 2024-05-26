@@ -10,5 +10,9 @@ export const AppContainer: FC<AppContainerProps> = ({
   children,
   className,
 }) => {
-  return <div className={cn("app-container px-8 py-4", className)}>{children}</div>;
+  return (
+    <div className={cn("mt-8 px-5 py-4", className)}>
+      {children}
+    </div>
+  );
 };

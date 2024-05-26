@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 
@@ -31,8 +33,12 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <>
-      <div className="bg-white md:shadow-sm">
+    <div
+      className={`transition-transform duration-1000 ease-in-out ${
+        activeMenu ? "transform translate-x-0" : "transform -translate-x-full"
+      }`}
+    >
+      <div className="bg-white md:shadow-sm border-r border-black/10">
         <div className="flex justify-between items-center py-2">
           <div className="sticky">
             <Link
@@ -63,7 +69,14 @@ const Sidebar = () => {
           </TooltipProvider>
         </div>
       </div>
-      <div className="h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
+      {/* <div className="h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10"></div> */}
+      <div
+        className={`h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 border-r border-black/10 md:shadow-sm transition-transform duration-700 ease-in-out ${
+          activeMenu
+            ? "transform translate-x0 animatein fade-in0"
+            : "transform -translate-x-full"
+        }`}
+      >
         {activeMenu && (
           <>
             <div className="pb-10">
@@ -102,7 +115,7 @@ const Sidebar = () => {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

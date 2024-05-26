@@ -1,12 +1,14 @@
-import { AppContainer } from "@/components/core/AppContainer";
 import React from "react";
+import { AppContainer } from "@/components/core/AppContainer";
+import Header from "@/components/core/Header";
 
 type Props = {};
 
 const Page = (props: Props) => {
   return (
-    <AppContainer className="flex w-full items-start bg-lime-700 ">
-      <h1>Orders Page</h1>
+    <AppContainer className="flex w-full items-start bg-lime-700 text-black">
+      <Header />
+      <p>hll</p>
     </AppContainer>
   );
 };
