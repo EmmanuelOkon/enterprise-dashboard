@@ -1,9 +1,8 @@
-import Page from '@/components/pages/orders';
-import Table from '@/components/pages/orders/table';
-import React from 'react'
+import React from "react";
+import Page from "@/components/pages/orders";
 
 const Orders = () => {
-  return <Table />;
-}
+  return <Page />;
+};
 
-export default Orders
+export default Orders;

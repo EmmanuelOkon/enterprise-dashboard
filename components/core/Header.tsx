@@ -1,11 +1,19 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type HeaderProps = {
+  category: string;
+  title: string;
+};
 
-const Header = (props: Props) => {
+const Header = ({ category, title }: HeaderProps) => {
   return (
-    <div>Header</div>
-  )
-}
+    <div className="mb-10">
+      <p className="text-lg text-gray-400">{category}</p>
+      <p className="text-3xl font-extrabold tracking-tight text-slate-900">
+        {title}
+      </p>
+    </div>
+  );
+};
 
-export default Header
+export default Header;
