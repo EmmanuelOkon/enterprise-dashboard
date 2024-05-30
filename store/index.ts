@@ -11,9 +11,11 @@ interface appStore {
   activeMenu: boolean;
   isClicked: IsClicked;
   setActiveMenu: (active: boolean) => void;
+  isLoading: boolean;
   screenSize: number | undefined;
   setIsClicked: (clicked: Partial<IsClicked>) => void;
   setScreenSize: (size: number) => void;
+  setLoading: (loading: boolean, timeout?: number) => void;
 }
 
 const useAppState = create<appStore>((set) => ({
@@ -25,6 +27,7 @@ const useAppState = create<appStore>((set) => ({
     notification: false,
   },
   screenSize: undefined,
+  isLoading: false,
   setActiveMenu: (active) => set({ activeMenu: active }),
   setIsClicked: (clicked: Partial<IsClicked>) =>
     set(() => ({
@@ -37,6 +40,12 @@ const useAppState = create<appStore>((set) => ({
       },
     })),
   setScreenSize: (size) => set({ screenSize: size }),
+  setLoading: (loading, timeout = 3000) => {
+    set({ isLoading: loading });
+    if (loading) {
+      setTimeout(() => set({ isLoading: false }), timeout);
+    }
+  },
 }));
 
 export default useAppState;

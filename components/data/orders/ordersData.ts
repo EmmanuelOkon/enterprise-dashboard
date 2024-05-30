@@ -1,12 +1,12 @@
 import { ordersDataProps } from "../../../interface/orders/ordersDataProps";
 
-import product1 from "./product1.jpg";
-import product2 from "./product2.jpg";
-import product3 from "./product3.jpg";
-import product4 from "./product4.jpg";
-import product5 from "./product5.jpg";
-import product6 from "./product6.jpg";
-import product7 from "./product7.jpg";
+import product1 from "../../../public/images/product1.jpg";
+import product2 from "../../../public/images/product2.jpg";
+import product3 from "../../../public/images/product3.jpg";
+import product4 from "../../../public/images/product4.jpg";
+import product5 from "../../../public/images/product5.jpg";
+import product6 from "../../../public/images/product6.jpg";
+import product7 from "../../../public/images/product7.jpg";
 
 export const ordersData: ordersDataProps[] = [
   {
@@ -217,7 +217,7 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 845954,
-    CustomerName: "Penjani",
+    CustomerName: "Panjabi Udo",
     TotalAmount: 59.99,
     OrderItems: "Headphone",
     Location: "USA",
@@ -238,7 +238,7 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 874534,
-    CustomerName: "Danai",
+    CustomerName: "Danae",
     TotalAmount: 122.99,
     OrderItems: "Watch",
     Location: "USA",
@@ -249,7 +249,7 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 38489,
-    CustomerName: "Miron",
+    CustomerName: "Myron",
     TotalAmount: 87.99,
     OrderItems: "Ice Cream",
     Location: "USA",
@@ -271,7 +271,7 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 874534,
-    CustomerName: "Danai",
+    CustomerName: "Danae",
     TotalAmount: 122.99,
     OrderItems: "Watch",
     Location: "USA",
@@ -282,7 +282,7 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 10248,
-    CustomerName: "Vinet",
+    CustomerName: "Vined",
 
     TotalAmount: 32.38,
     OrderItems: "Fresh Tomato",
@@ -313,7 +313,7 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 893486,
-    CustomerName: "Anika Viseer",
+    CustomerName: "Anita Viber",
     TotalAmount: 93.31,
     OrderItems: "Night Lamp",
     Location: "Germany",
@@ -323,9 +323,9 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 748975,
-    CustomerName: "Miron Vitold",
+    CustomerName: "Mirin Vito",
     TotalAmount: 23.99,
-    OrderItems: "Healthcare Erbology",
+    OrderItems: "Healthcare Enology",
     Location: "Spain",
     Status: "rejected",
     StatusBg: "red",
@@ -333,9 +333,9 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 94757,
-    CustomerName: "Omar Darobe",
+    CustomerName: "Omar Daube",
     TotalAmount: 95.99,
-    OrderItems: "Makeup Lancome Rouge",
+    OrderItems: "Makeup Lanose Rouge",
     Location: "USA",
     Status: "canceled",
     StatusBg: "#FF5C8E",
@@ -343,7 +343,7 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 944895,
-    CustomerName: "Lulia albu",
+    CustomerName: "Lelia Albi",
     TotalAmount: 17.99,
     OrderItems: "Skincare",
     Location: "USA",
@@ -489,7 +489,7 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 845954,
-    CustomerName: "Penjani",
+    CustomerName: "Penang",
     TotalAmount: 59.99,
     OrderItems: "Headphone",
     Location: "USA",
@@ -625,7 +625,7 @@ export const ordersData: ordersDataProps[] = [
   },
   {
     OrderID: 845954,
-    CustomerName: "Penjani",
+    CustomerName: "Penman",
     TotalAmount: 59.99,
     OrderItems: "Headphone",
     Location: "USA",
