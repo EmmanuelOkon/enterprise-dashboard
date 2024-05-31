@@ -1,6 +1,8 @@
 "use client";
 import * as React from "react";
 
+import useAppState from "@/store";
+
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -32,7 +34,17 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 import TablePulse from "../../Table/dataTablePulse";
+import { MdOutlineHourglassEmpty } from "react-icons/md";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -71,7 +83,6 @@ const fuzzyFilter: FilterFn<any> = (
 };
 
 export function DataTable<TData, TValue>({
-  isLoading,
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -79,6 +90,11 @@ export function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
+  const { isLoading, setIsLoading } = useAppState();
+
+  React.useEffect(() => {
+    setIsLoading();
+  }, [setIsLoading]);
 
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
@@ -127,7 +143,7 @@ export function DataTable<TData, TValue>({
               Columns
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end" className="bg-slate-100">
             {table
               .getAllColumns()
               .filter((column) => column.getCanHide())
@@ -194,8 +210,8 @@ export function DataTable<TData, TValue>({
                   className="h-72 text-center sm:h-96 md:h-[500px]"
                 >
                   <div className="flex w-full flex-col items-center justify-center">
-                    {/* <EmptyTableIcon />{" "} */}
-                    <span className="-mt-5 ml-5"> No results.</span>
+                    <MdOutlineHourglassEmpty className="h-5 w-5" />{" "}
+                    <span className="font-medium text-sm "> No results.</span>
                   </div>
                 </TableCell>
               </TableRow>

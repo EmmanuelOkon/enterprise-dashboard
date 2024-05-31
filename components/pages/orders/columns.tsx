@@ -43,18 +43,19 @@ export const columns: ColumnDef<ordersDataProps>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "ProductImage",
+    accessorFn: (row) => ({
+      productImage: row.ProductImage,
+      orderItem: row.OrderItems,
+    }),
     header: "Image",
-    cell: ({ row }) => (
-      <div className="flex justify-start">
-        <Image
-          src={row.getValue("ProductImage")}
-          alt="Product Image"
-          width={50}
-          height={50}
-        />
-      </div>
-    ),
+    cell: ({ row }) => {
+      const { ProductImage, OrderItems } = row.original;
+      return (
+        <div className="flex justify-start">
+          <Image src={ProductImage} alt={OrderItems} width={50} height={50} className="rounded-[4px] " />
+        </div>
+      );
+    },
   },
   {
     accessorKey: "OrderItems",
@@ -90,8 +91,7 @@ export const columns: ColumnDef<ordersDataProps>[] = [
       const { Status, StatusBg } = row.original;
       return (
         <div
-          // className="text-white py-1 px-2 capitalize rounded-2xl text-md w-20 text-center"
-          className="capitalize p-1 rounded-lg text-white text-center w-20 font-bold"
+          className="capitalize p-1 rounded-lg text-white text-center w-20 font-medium"
           style={{ backgroundColor: StatusBg }}
         >
           {Status}
@@ -104,6 +104,13 @@ export const columns: ColumnDef<ordersDataProps>[] = [
     header: "Order ID",
     cell: ({ row }) => (
       <div className="capitalize">#{row.getValue("OrderID")}</div>
+    ),
+  },
+  {
+    accessorKey: "Location",
+    header: "Location",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("Location")}</div>
     ),
   },
 
@@ -127,7 +134,6 @@ export const columns: ColumnDef<ordersDataProps>[] = [
               className="cursor-pointer bg-white"
               onClick={() => {
                 navigator.clipboard.writeText(order.OrderID.toString());
-
                 toast({
                   title: "Link Copied",
                 });
