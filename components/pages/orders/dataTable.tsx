@@ -94,6 +94,8 @@ export function DataTable<TData, TValue>({
   );
   const { isLoading, setIsLoading } = useAppState();
 
+  const [startPageIndex, setStartPageIndex] = React.useState<number>(0);
+
   React.useEffect(() => {
     setIsLoading();
   }, [setIsLoading]);
@@ -241,6 +243,9 @@ export function DataTable<TData, TValue>({
                     if (currentPageIndex > 0) {
                       table.setPageIndex(currentPageIndex - 1);
                       router.push(`?page=${currentPageIndex}`);
+                      if (currentPageIndex - 1 < startPageIndex) {
+                        setStartPageIndex(startPageIndex - 1);
+                      }
                     }
                   }}
                   disabled={!table.getCanPreviousPage()}
@@ -250,21 +255,29 @@ export function DataTable<TData, TValue>({
                   Previous
                 </Button>
               </PaginationItem>
-              {Array.from({ length: table.getPageCount() }).map((_, index) => (
-                <PaginationItem key={index}>
-                  <PaginationLink
-                    href={`?page=${index + 1}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      table.setPageIndex(index);
-                      router.push(`?page=${index + 1}`);
-                    }}
-                    isActive={table.getState().pagination.pageIndex === index}
-                  >
-                    {index + 1}
-                  </PaginationLink>
-                </PaginationItem>
-              ))}
+              {Array.from({ length: table.getPageCount() })
+                .slice(startPageIndex, startPageIndex + 3)
+                .map((_, index) => (
+                  <PaginationItem key={index}>
+                    <PaginationLink
+                      href={`?page=${index + 1}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        table.setPageIndex(startPageIndex + index);
+                        router.push(`?page=${startPageIndex + index + 1}`);
+                        if (index === 2) {
+                          setStartPageIndex(startPageIndex + 1);
+                        }
+                      }}
+                      isActive={
+                        table.getState().pagination.pageIndex ===
+                        startPageIndex + index
+                      }
+                    >
+                      {startPageIndex + index + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
               <PaginationItem>
                 <Button
                   variant="outline"
@@ -275,6 +288,9 @@ export function DataTable<TData, TValue>({
                       table.getState().pagination.pageIndex;
                     table.setPageIndex(currentPageIndex + 1);
                     router.push(`?page=${currentPageIndex + 2}`);
+                    if (currentPageIndex + 1 >= startPageIndex + 3) {
+                      setStartPageIndex(startPageIndex + 1);
+                    }
                   }}
                   disabled={!table.getCanNextPage()}
                   className="gap-2"
