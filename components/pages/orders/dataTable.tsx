@@ -1,6 +1,8 @@
 "use client";
 import * as React from "react";
 
+import { useRouter } from "next/navigation";
+
 import useAppState from "@/store";
 
 import {
@@ -40,11 +42,10 @@ import {
   PaginationEllipsis,
   PaginationItem,
   PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
 } from "@/components/ui/pagination";
 import TablePulse from "../../Table/dataTablePulse";
 import { MdOutlineHourglassEmpty } from "react-icons/md";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -86,6 +87,7 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const router = useRouter();
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -225,22 +227,65 @@ export function DataTable<TData, TValue>({
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
+        <div>
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const currentPageIndex =
+                      table.getState().pagination.pageIndex;
+                    if (currentPageIndex > 0) {
+                      table.setPageIndex(currentPageIndex - 1);
+                      router.push(`?page=${currentPageIndex}`);
+                    }
+                  }}
+                  disabled={!table.getCanPreviousPage()}
+                  className="gap-2"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                  Previous
+                </Button>
+              </PaginationItem>
+              {Array.from({ length: table.getPageCount() }).map((_, index) => (
+                <PaginationItem key={index}>
+                  <PaginationLink
+                    href={`?page=${index + 1}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      table.setPageIndex(index);
+                      router.push(`?page=${index + 1}`);
+                    }}
+                    isActive={table.getState().pagination.pageIndex === index}
+                  >
+                    {index + 1}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
+              <PaginationItem>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const currentPageIndex =
+                      table.getState().pagination.pageIndex;
+                    table.setPageIndex(currentPageIndex + 1);
+                    router.push(`?page=${currentPageIndex + 2}`);
+                  }}
+                  disabled={!table.getCanNextPage()}
+                  className="gap-2"
+                >
+                  Next
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
       </div>
     </div>
   );
