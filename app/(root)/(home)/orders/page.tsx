@@ -1,8 +1,8 @@
-import Page from '@/components/pages/orders';
-import React from 'react'
+import React from "react";
+import Page from "@/components/pages/orders";
 
 const Orders = () => {
   return <Page />;
-}
+};
 
-export default Orders
+export default Orders;

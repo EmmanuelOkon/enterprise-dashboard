@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import {
   BarChart,
@@ -10,7 +12,6 @@ import {
 } from "recharts";
 import StackedLengend from "./StackedLengend";
 import { combinedData } from "../data/customers/StackedChartsData";
-// {combinedData}
 
 const Stacked = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -30,7 +31,7 @@ const Stacked = () => {
         <div className="text-center">
           <BarChart
             id="stack chart"
-            width={500}
+            width={520}
             height={400}
             data={combinedData}
             margin={{
@@ -44,7 +45,10 @@ const Stacked = () => {
           >
             <XAxis dataKey="x" />
             <YAxis />
-            <Tooltip wrapperStyle={{ width: 150, backgroundColor: "#ccc" }} />
+            <Tooltip
+              trigger="click"
+              wrapperStyle={{ width: 150, backgroundColor: "#ccc" }}
+            />
 
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             {showBudget && <Bar dataKey="budget" stackId="a" fill="#8884d8" />}

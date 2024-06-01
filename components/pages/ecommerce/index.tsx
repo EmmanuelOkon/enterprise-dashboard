@@ -12,8 +12,8 @@ type Props = {};
 
 const Page = (props: Props) => {
   return (
-    <AppContainer className="mt-8 ">
-      <div className="flex flex-wrap lg:flexnowrap justify-between center gap-4 w-full ">
+    <AppContainer >
+      <div className="flex flex-wrap justify-between center gap-4 w-full ">
         <div className="bg-white block dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 lg:mx-4 mx[10px] bg-hero-pattern bg-no-repeat bg-cover bg-center ">
           <div className="w-full ">
             <div className="flex justify-between items-center">
@@ -88,7 +88,7 @@ const Page = (props: Props) => {
               </p>
             </div>
           </div>
-          <div className="mt-10 flex gap-4 flexwrap justify-center">
+          <div className="mt-10 flex gap-4 justify-center">
             <div className="border-r-1 border-color m-4 pr-10">
               <div>
                 <p>

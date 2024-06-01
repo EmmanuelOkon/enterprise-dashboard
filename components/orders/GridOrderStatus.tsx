@@ -11,6 +11,6 @@ export const GridOrderStatus = ({ Status, StatusBg }: GridOrderStatusProps) => (
     style={{ background: StatusBg }}
     className="text-white py-1 px-2 capitalize rounded-2xl text-md"
   >
-    {Status}
+    {Status} hr
   </Button>
 );
